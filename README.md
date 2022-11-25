@@ -3,6 +3,7 @@ Greed is a game in which the player seeks to gather as many falling gems as poss
 
 ## Design
 
+'''
 Color: Class to represent a color.
 -----------------------------------------------------------
 _r: Red
@@ -70,5 +71,6 @@ start_game(): Starts the game.
 draw_screen(): Draws the current state of the screen.
 get_input(): Gets input from the player, players movement or key presses.
 do_updates(): Update the positions of the actors
+'''
 
 
