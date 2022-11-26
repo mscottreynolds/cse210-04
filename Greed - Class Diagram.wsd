@@ -1,0 +1,62 @@
+@startuml
+
+class Color {
+    _r: Red
+    _g: Green
+    _b: Blue
+}
+
+class Point {
+    _display: Displayable text representation.
+    _x: x position on the screen.
+    _y: y position on the screen.
+    _size: Size of this point.
+    _color: Color of this point.
+}
+
+class Actor {
+    _position: Current position of actor on the screen.
+    _velocity: How fast the actor is moving.
+    _full_path: Collection of points representing the path this actor has taken.
+    _recent_path: Collection of points representing the most recent movement.
+
+    move_actor(dx, dy): Move the actor in the specified directions.
+    is_intercept(Point): Returns true if the specified point was intercepted by the most recent movement.
+}
+
+class Artificat {
+    _description: Current description (or message) of this actor.
+    _value: Number of points for this artificat, 1 for gem, -1 for rock.
+
+}
+
+Actor <|-- Artificat 
+
+class Player {
+    _score: The players current score.
+}
+
+Actor <|-- Player
+
+class TerminalServices {
+
+}
+
+class VideoServices {
+
+}
+
+class Director {
+    _cast: Collection of all actors.
+    _banner: Main banner of messages.
+    _player: Represents the player
+    _artifacts: Collection of artifacts.
+    _terminal: Terminal services.
+    _video: Video services.
+    -----------------------------------------------------------
+    start_game(): Starts the game.
+    _draw_screen(): Draws the current state of the screen.
+    _get_input(): Gets input from the player, players movement or key presses.
+    _do_updates(): Update the positions of the actors
+}
+@enduml
