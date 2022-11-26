@@ -68,9 +68,9 @@ _terminal(TerminalServices): Terminal services.
 _video(VideoServices): Video services.
 -----------------------------------------------------------
 start_game(): Starts the game.
-draw_screen(): Draws the current state of the screen.
-get_input(): Gets input from the player, players movement or key presses.
-do_updates(): Update the positions of the actors
+_draw_screen(): Draws the current state of the screen.
+_get_input(): Gets input from the player, players movement or key presses.
+_do_updates(): Update the positions of the actors
 ```
 
 
