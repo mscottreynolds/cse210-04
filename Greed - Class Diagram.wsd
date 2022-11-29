@@ -7,26 +7,27 @@ class Color {
 }
 
 class Point {
-    _display: Displayable text representation.
     _x: x position on the screen.
     _y: y position on the screen.
-    _size: Size of this point.
-    _color: Color of this point.
 }
 
 class Actor {
+    _text: Displayable text representation.
+    _size: Size of this actor.
+    _color: Color of the actor.
     _position: Current position of actor on the screen.
     _velocity: How fast the actor is moving.
-    _full_path: Collection of points representing the path this actor has taken.
-    _recent_path: Collection of points representing the most recent movement.
 
     move_actor(dx, dy): Move the actor in the specified directions.
-    is_intercept(Point): Returns true if the specified point was intercepted by the most recent movement.
 }
 
 class Artificat {
     _description: Current description or message of this actor.
     _value: Number of points for this artificat, 1 for gem, -1 for rock.
+    _full_path: Collection of points representing the path this actor has taken.
+    _recent_path: Collection of points representing the most recent movement.
+
+    is_intercept(Point): Returns true if the specified point was intercepted by the most recent movement.
 }
 
 Actor <|-- Artificat 
@@ -37,12 +38,18 @@ class Player {
 
 Actor <|-- Player
 
-class TerminalServices {
+class Cast {
+    add_actor(self, group, actor): Adds an actor to the given group.
+    get_actors(self, group): Gets the actors in the given group.
+    get_all_actors(self): Gets all of the actors in the cast.
+    get_first_actor(self, group): Gets the first actor in the given group.
+    remove_actor(self, group, actor): Removes an actor from the given group.
+}
 
+class TerminalServices {
 }
 
 class VideoServices {
-
 }
 
 class Director {
