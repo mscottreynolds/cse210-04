@@ -10,7 +10,7 @@ class Actor:
 
     Attributes:
         _text (string): The text to display
-        _size (int): The font size to use.
+        _font_size (int): The font size to use.
         _color (Color): The color of the text.
         _position (Point): The screen coordinates.
         _velocity (Point): The speed and direction.
@@ -19,7 +19,7 @@ class Actor:
     def __init__(self):
         """Constructs a new Actor."""
         self._text = ""
-        self._size = 15
+        self._font_size = 15
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 0)
@@ -32,13 +32,13 @@ class Actor:
         """
         return self._color
 
-    def get_size(self):
+    def get_font_size(self):
         """Gets the actor's font size.
         
         Returns:
             Point: The actor's font size.
         """
-        return self._size
+        return self._font_size
 
     def get_position(self):
         """Gets the actor's position in 2d space.
@@ -92,7 +92,7 @@ class Actor:
         """
         self._position = position
     
-    def set_size(self, font_size):
+    def set_font_size(self, font_size):
         """Updates the font size to the given one.
         
         Args:

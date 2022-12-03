@@ -8,6 +8,8 @@ class Artifact(Actor):
         _message (string): Unique message for this artificat.
     """
     def __init__(self):
+        super().__init__()
+        
         """Initialize with blank message."""
         self._description = ""  # silly description or message
         self._value = 0         # point value

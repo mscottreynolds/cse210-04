@@ -13,7 +13,7 @@ class Point {
 
 class Actor {
     _text: Displayable text representation.
-    _size: Size of this actor.
+    _font_size: Size of this actor.
     _color: Color of the actor.
     _position: Current position of actor on the screen.
     _velocity: How fast the actor is moving.
@@ -21,22 +21,19 @@ class Actor {
     move_actor(dx, dy): Move the actor in the specified directions.
 }
 
-class Artificat {
-    _description: Current description or message of this actor.
-    _value: Number of points for this artificat, 1 for gem, -1 for rock.
-    _full_path: Collection of points representing the path this actor has taken.
-    _recent_path: Collection of points representing the most recent movement.
+class Artifact {
+    _value: Number of points for this Artifact, 1 for gem, -1 for rock.
 
     is_intercept(Point): Returns true if the specified point was intercepted by the most recent movement.
 }
 
-Actor <|-- Artificat 
+Actor <|-- Artifact 
 
 class Player {
-    _score: The players current score.
+    _score: Players score.
 }
 
-Actor <|-- Player
+Actor <|-- Artifact
 
 class Cast {
     add_actor(self, group, actor): Adds an actor to the given group.
@@ -46,18 +43,13 @@ class Cast {
     remove_actor(self, group, actor): Removes an actor from the given group.
 }
 
-class TerminalServices {
-}
+class TerminalServices
 
-class VideoServices {
-}
+class VideoServices
 
 class Director {
     _cast: Collection of all actors.
-    _banner: Main banner of messages.
-    _player: Represents the player
-    _artifacts: Collection of artifacts.
-    _terminal: Terminal services.
+    _keyboard: Keyboard services.
     _video: Video services.
 
     start_game(): Starts the game.

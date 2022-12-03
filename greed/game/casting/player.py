@@ -6,6 +6,8 @@ class Player(Actor):
         _score (int): The running score for this user.
     """
     def __init__(self):
+        super().__init__()
+        
         self._score = 0
     def get_score(self):
         """Return the current score for the player. """

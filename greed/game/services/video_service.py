@@ -1,4 +1,5 @@
 import pyray
+from game.casting.actor import Actor
 
 
 class VideoService:
@@ -32,7 +33,7 @@ class VideoService:
         if self._debug == True:
             self._draw_grid()
     
-    def draw_actor(self, actor):
+    def draw_actor(self, actor: Actor):
         """Draws the given actor's text on the screen.
 
         Args:
