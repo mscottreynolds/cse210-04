@@ -33,7 +33,7 @@ class Player {
     _score: Players score.
 }
 
-Actor <|-- Artifact
+Actor <|-- Player
 
 class Cast {
     add_actor(self, group, actor): Adds an actor to the given group.
