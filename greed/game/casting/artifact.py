@@ -1,4 +1,6 @@
 from game.casting.actor import Actor
+from game.shared.point import Point
+
 """
 Artifact class implements Actor and adds attributes and methods for dealing with the path the artifact has taken, its point value, description, and for checking interecepted positions.
 """
@@ -32,6 +34,6 @@ class Artifact(Actor):
         """Set this artifacts point value. """
         self._value = value
 
-    def is_intercept(self, position):
+    def is_intercept(self, position: Point):
         """Check the supplied position (Point) and see if it was intercepted with the most recent move/path."""
-        return False
+        return self._position == position

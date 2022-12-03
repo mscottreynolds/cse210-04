@@ -60,28 +60,23 @@ class Director:
         player = cast.get_first_actor("player")
         artifacts = cast.get_actors("artifacts")
 
-        # banner.set_text("")
         max_x = self._video.get_width()
         max_y = self._video.get_height()
         player.move_next(max_x, max_y)
+        player_position = player.get_position()
         score = player.get_score()
         
         for artifact in artifacts:
-            if player.get_position().equals(artifact.get_position()):
+            if artifact.is_intercept(player_position):
                 score += artifact.get_value()
-                player.set_score(score)
 
                 # Remove the artifact from the cast.
                 cast.remove_actor("artifacts", artifact)
-                # message = artifact.get_description()
-                # self._player.set_text(message)
-
-                # Add new artifact?
-                # ...
             else:
                 # Move artifact to next position.
                 artifact.move_next(max_x, max_y)
         
+        player.set_score(score)
         banner.set_text(f"Score: {score}")
 
 
